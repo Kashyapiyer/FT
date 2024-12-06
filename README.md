@@ -3,4 +3,4 @@
 Reference Dataset : 
 https://huggingface.co/datasets/tarekziade/profanity-clean 
 
-Model : roberta-base
+Hugging face Model : [roberta-base](https://huggingface.co/FacebookAI/roberta-base)
