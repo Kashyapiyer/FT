@@ -4,8 +4,17 @@ from classifier import CustomRobertaPFClassifier
 from transformers import AutoTokenizer, AutoModel
 warnings.filterwarnings("ignore")
 
+def set_seed(seed_value=42):
+    torch.manual_seed(seed_value)
+    torch.cuda.manual_seed(seed_value)
+    torch.cuda.manual_seed_all(seed_value)
+    np.random.seed(seed_value)
+    random.seed(seed_value)
+    torch.backends.cudnn.deterministic = True
+
 def rbrtatoxiccnfthrvalidator(contextstr, mdlpath=OUTPUT_DIR, threshold=0.020):
     try:
+        set_seed()
         ft_model = CustomRobertaPFClassifier()
         binpath = mdlpath + '/pytorch_model.bin'
         threshold = str(threshold)
