@@ -12,9 +12,9 @@ def set_seed(seed_value=42):
     random.seed(seed_value)
     torch.backends.cudnn.deterministic = True
 
-def rbrtatoxiccnfthrvalidator(contextstr, mdlpath=OUTPUT_DIR, threshold=0.020):
+def rbrtatoxiccnfthrvalidator(contextstr, mdlpath=OUTPUT_DIR, threshold=0.020, seed_value=42):
     try:
-        set_seed()
+        set_seed(seed_value)
         ft_model = CustomRobertaPFClassifier()
         binpath = mdlpath + '/pytorch_model.bin'
         threshold = str(threshold)
